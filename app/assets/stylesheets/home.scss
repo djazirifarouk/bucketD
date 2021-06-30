@@ -1,0 +1,52 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#app-navbar {
+    background: linear-gradient(120deg, #0cf9e5, #037ef3)
+}
+.margin-bottom-intro {
+    margin-bottom: 70px;
+}
+.margin-bottom-explain {
+    margin-bottom: 50px;
+}
+.margin-top {
+    margin-top: 100px;
+}
+.margin-top-header {
+    margin-top: 50px;
+}
+.padding-text-top {
+    padding-top: 10%;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background{
+    align-items: stretch;
+    background-attachment: scroll;
+    background-image: asset-data-url('bg.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+ }
+.side-margin {
+    right: 0px;
+    left: 0px;
+    margin-left: 5%;
+    margin-right:5%;
+}
+.container-fluid-w100 {
+    max-width: 100%;
+}
+.blend-darken {
+    mix-blend-mode: darken;
+}

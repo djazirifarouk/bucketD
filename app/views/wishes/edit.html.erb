@@ -1,0 +1,9 @@
+<div class="container margin-top">
+    <h1>Editing my wish item</h1>
+
+    <%= render 'form', wish: @wish %>
+
+    <%= link_to 'Delete', @wish, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger rounded-pill" %>
+    <%= link_to 'Back', wishes_path, class:"nav-link" %>
+
+</div>

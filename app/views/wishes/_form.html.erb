@@ -1,0 +1,64 @@
+<%= form_with(model: wish) do |form| %>
+  <% if wish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wish.errors.count, "error") %> prohibited this wish from being saved:</h2>
+
+      <ul>
+        <% wish.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="space-between-title">
+    <div class="field mb-3">
+      <%= form.label :title, class:"form-label" %>
+      <%= form.text_field :title, class: "form-control form-control-lg", placeholder:'Your Wish' %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.label :description, class:"form-label" %>
+      <%= form.text_area :description, class: "form-control", placeholder: 'What is your motivation?' %>
+    </div>
+
+    <div class="field">
+      <% form.label :budget_achieved %>
+      <% form.text_field :budget_achieved %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.label :budget_plan, class:"form-label" %>
+      <%= form.text_field :budget_plan, class: "form-control", placeholder: 'How much does it cost? (in dollars $)' %>
+    </div>
+
+    <div class="field">
+      <% form.label :nb_likes %>
+      <% form.number_field :nb_likes %>
+    </div>
+
+    <div class="field mb-3">
+      <div class="form-text" style="margin-bottom:7px">When is your deadline?</div>
+      <%= form.label :goal_date, class:"form-label" %>
+      <%= form.date_select :goal_date, class: "" %>
+    </div>
+
+    <div class="field">
+      <% form.label :nb_contributors %>
+      <% form.number_field :nb_contributors %>
+    </div>
+
+    <div class="field mb-3 form-check">
+      <%= form.label 'Private', class:"form-check-label" %>
+      <%= form.check_box :privacy, class:"form-check-input" %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.number_field :user_id, id: :wish_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class:"btn btn-lg btn-primary rounded-pill space-between" %>
+    </div>
+  </div>
+<% end %>

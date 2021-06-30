@@ -1,0 +1,23 @@
+<nav class="navbar fixed-top navbar-dark" id="app-navbar">
+  <div class="container-fluid">
+    <%= link_to image_tag("WhiteLogo.png"), root_path, class:"navbar-brand" %> <!-- BRAND LOGO -->
+
+    <% if user_signed_in? %>
+    <h5 class="center">Welcome, <%= current_user.first_name %>! <h5> <!-- WELCOME message -->
+    <% end %>
+
+    <form class=""> <!-- header buttons menu -->
+      
+      <% if user_signed_in? %>
+        <%= link_to 'Check for wishes', wishes_path, class:"btn btn-light me-2 rounded-pill"%>
+        <%= link_to 'Edit my account', edit_user_registration_path, class:"btn btn-outline-dark me-2 rounded-pill"%>
+        <%= link_to 'About us', about_index_path, class:"btn btn-outline-light me-2 rounded-pill"%>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"btn btn-dark me-2 rounded-pill"%>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class:"btn btn-dark me-2 rounded-pill"%>
+        <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-outline-dark me-2 rounded-pill"%>
+      <% end %>
+      
+    </form>
+  </div>
+</nav>

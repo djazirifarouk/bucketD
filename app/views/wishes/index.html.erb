@@ -1,0 +1,63 @@
+<% if user_signed_in? %>
+
+  <div class="container margin-top">
+    <h1>The Bucket List</h1>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end"> <!-- add new item -->
+          <%= link_to '+ Add new Wish', new_wish_path, class:"btn btn-primary btn-lg me-md-1 rounded-pill" %>
+    </div>
+    <!-- if number of wishes == 0 -->
+      <% if @wishes.count == 0 %>
+        <div class="center space-between">  <!-- add icon -->
+            <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com//puvaffet.json"
+                trigger="loop"
+                colors="primary:#121331,secondary:#037ef3"
+                style="width:150px;height:150px">
+            </lord-icon>
+        </div>
+        <h3 class="text-secondary text-center display-6">Fill your Bucket List with your own Desire</h3> <!-- message -->
+        <div class="text-center"> <!-- add new link -->
+          <%= link_to 'New Wish', new_wish_path, class:"nav-link" %>
+        </div>
+    <!-- else -->
+      <% else %>
+        <div class="container text-center space-between">
+          <div class="row">
+            <div class="col-sm">
+              <% @wishes.each do |wish| %>
+                <!-- if -->
+                <% if (wish.privacy and wish.user==current_user) or (!wish.privacy and wish.user!=current_user) or (!wish.privacy and wish.user==current_user) %>
+                  <div class="card border-info shadow-sm p-0 mb-5 bg-body rounded">  <!-- Single Card Design-->
+                    <% if wish.privacy %>
+                      <h5 class="card-header bg-secondary text-light"><%= ((wish.goal_date - Time.now)/1.day).to_i %> Days Left</h5>
+                    <% else %>
+                      <h5 class="card-header bg-info text-light"><%= ((wish.goal_date - Time.now)/1.day).to_i %> Days Left</h5>
+                    <% end %>
+                    <div class="card-body">
+                      <h2 class="card-title"><%= link_to wish.title, wish, class: "nav-link" %></h2>
+                      <% if wish.budget_plan > wish.budget_achieved %>
+                        <h1 class="card-text display-3 text-danger"><%= wish.budget_plan %> $</h1>
+                      <% else %>
+                        <h1 class="card-text display-3 text-success"><%= wish.budget_plan %> $</h1>
+                      <% end %>
+                      <%= link_to 'Show', wish_path(wish), class:"btn btn-outline-primary rounded-pill space-between-hor" %>
+                      <% if wish.user == current_user %>
+                        <%= link_to 'Edit this item', edit_wish_path(wish), class:"btn btn-outline-primary rounded-pill space-between-hor" %>  
+                        <%= link_to 'Delete', wish, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger rounded-pill space-between-hor" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  </br>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+
+<% else %>
+  <%= render 'home/index' %>
+<% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  budget_achieved: 1.5
+  budget_plan: 1.5
+  nb_likes: 1
+  goal_date: 2021-06-28 10:29:20
+  nb_contributors: 1
+  privacy: false
+
+two:
+  title: MyString
+  description: MyText
+  budget_achieved: 1.5
+  budget_plan: 1.5
+  nb_likes: 1
+  goal_date: 2021-06-28 10:29:20
+  nb_contributors: 1
+  privacy: false
