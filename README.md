@@ -1,24 +1,7 @@
-# README
+# BucketD Web App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello my name is Farouk Jaziri, and I am a 2nd year computer science student when I uploaded this project to github,
+I study in the National Engineering School of Carthage, Tunisia.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Every user has a wishlist, and other people help this user to achieve his goal before the deadline.
+This app was made to let people help each other in a simple way, with 1$ donation, you can create happiness.
